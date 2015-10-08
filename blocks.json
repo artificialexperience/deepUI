@@ -4,20 +4,20 @@
         "url": "https://raw.githubusercontent.com/artificialexperience/deepUI/master/blocks/deepdreamanim.json",
         "user": "samim",
         "date": "7.10.2015",
-        "description": "none"
+        "description": "Create DeepDream animations. Including optical flow, single unite & guided dreaming."
     },
     {
         "name": "StyleNet",
         "url": "https://raw.githubusercontent.com/artificialexperience/deepUI/master/blocks/neuralstyle.json",
         "user": "samim",
         "date": "8.10.2015",
-        "description": "none"
+        "description": "Create StyleNet Images. Including multi-style guides."
     },
     {
         "name": "char-rnn",
         "url": "https://raw.githubusercontent.com/artificialexperience/deepUI/master/blocks/charrnn.json",
         "user": "samim",
         "date": "8.10.2015",
-        "description": "none"
+        "description": "Recurrent Neural Network for training/sampling from character-level language models."
     }
 ]
