@@ -1,0 +1,324 @@
+{
+    "block": {
+        "meta": {
+            "name": "DeepDreamAnim",
+            "author": "samim",
+            "version": "v1.1"
+        },
+        "documentation": "DeepDream Documentation & Links",
+        "api": {
+            "endpoint": "http://127.0.0.1:5000/",
+            "apppath": "/Users/samim/sites/deepdreamui/",
+            "bucket": "/Users/samim/sites/deepdreamui/static/dofdata/"
+        },
+        "parameters": [
+            {
+                "name": "Create Dream",
+                "command": "python dreamer.py",
+                "parameter": [
+                    {
+                        "input": "title",
+                        "name": "Input/Output"
+                    },
+                    {
+                        "input": "select",
+                        "type": "input",
+                        "delimiter": ",",
+                        "name": "Input",
+                        "description": "Input directory with images",
+                        "param": "--input",
+                        "default": [
+                            "static/dofdata/folder1"
+                        ],
+                        "values": [
+                            "static/dofdata/folder1"
+                        ]
+                    },
+                    {
+                        "input": "select",
+                        "type": "output",
+                        "name": "Output",
+                        "description": "Output directory where images are saved",
+                        "param": "--output",
+                        "default": [
+                            "static/dofdata/folder3"
+                        ],
+                        "values": [
+                            "static/dofdata/folder3"
+                        ]
+                    },
+                    {
+                        "input": "title",
+                        "name": "Settings"
+                    },
+                    {
+                        "input": "select",
+                        "name": "Network",
+                        "description": "Network to use (default googlenet places)",
+                        "param": "--network",
+                        "default": [
+                            "googlelenet"
+                        ],
+                        "values": [
+                            "googlelenet",
+                            "placesnet"
+                        ]
+                    },
+                    {
+                        "input": "select",
+                        "name": "Octaves",
+                        "description": "Octaves. Default: 4",
+                        "param": "--octaves",
+                        "default": [
+                            "4"
+                        ],
+                        "values": [
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5"
+                        ]
+                    },
+                    {
+                        "input": "range",
+                        "name": "Octavescale",
+                        "description": "Octave Scale. Default: 1.4",
+                        "param": "--octavescale",
+                        "default": [
+                            "1.4"
+                        ],
+                        "range": {
+                            "min": "0.1",
+                            "max": "10",
+                            "step": "0.1"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "Iterations",
+                        "description": "Iterations. Default: 10",
+                        "param": "--iterations",
+                        "default": [
+                            "10"
+                        ],
+                        "range": {
+                            "min": "1",
+                            "max": "500",
+                            "step": "1"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "Jitter",
+                        "description": "Jitter. Default: 32",
+                        "param": "--jitter",
+                        "default": [
+                            "32"
+                        ],
+                        "range": {
+                            "min": "1",
+                            "max": "100",
+                            "step": "1"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "Stepsize",
+                        "description": "Step Size. Default: 1.5",
+                        "param": "--stepsize",
+                        "default": [
+                            "1.5"
+                        ],
+                        "range": {
+                            "min": "0.1",
+                            "max": "32",
+                            "step": "0.1"
+                        }
+                    },
+                    {
+                        "input": "text",
+                        "name": "Layers",
+                        "description": "Layers Loop. Default: inception_4c/output",
+                        "param": "--layers",
+                        "default": [
+                            "inception_4c/output"
+                        ],
+                        "values": [
+                            "inception_4c/output"
+                        ]
+                    },
+                    {
+                        "input": "title",
+                        "name": "Guide Settings"
+                    },
+                    {
+                        "input": "select",
+                        "type": "input",
+                        "name": "Guide",
+                        "description": "Guided dream image input.",
+                        "param": "--guide",
+                        "default": [
+                            ""
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                    {
+                        "input": "range",
+                        "name": "Singleunite drop",
+                        "description": "# of top units to drop (default: 0)",
+                        "param": "--drop",
+                        "default": [
+                            "0"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "100",
+                            "step": "1"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "Singleunite keep",
+                        "description": "# of units to use (default: 4)",
+                        "param": "--keep",
+                        "default": [
+                            "0"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "100",
+                            "step": "1"
+                        }
+                    },
+                    {
+                        "input": "title",
+                        "name": "Animation Settings"
+                    },
+                    {
+                        "input": "range",
+                        "name": "Blend",
+                        "description": "Blend Amount. Default: 0.5",
+                        "param": "--blend",
+                        "default": [
+                            "0.50"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "1",
+                            "step": "0.01"
+                        }
+                    },
+                    {
+                        "input": "select",
+                        "name": "Optical-Flow",
+                        "description": "Optical Flow.",
+                        "param": "--flow",
+                        "default": [
+                            "1"
+                        ],
+                        "values": [
+                            "0",
+                            "1"
+                        ]
+                    },
+                    {
+                        "input": "select",
+                        "name": "GPU",
+                        "description": "Use GPU",
+                        "param": "--gpu",
+                        "default": [
+                            "1"
+                        ],
+                        "values": [
+                            "0",
+                            "1"
+                        ]
+                    },
+                    {
+                        "input": "range",
+                        "name": "Quality",
+                        "description": "Jpeg compression quality.",
+                        "param": "--preview",
+                        "default": [
+                            "100"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "101",
+                            "step": "1"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Create Video",
+                "command": "python dreamer.py --create 1",
+                "parameter": [
+                    {
+                        "input": "select",
+                        "type": "input",
+                        "delimiter": ",",
+                        "name": "Input",
+                        "description": "Input directory with images",
+                        "param": "--input",
+                        "default": [
+                            "static/dofdata/folder3"
+                        ],
+                        "values": [
+                            "static/dofdata/folder3"
+                        ]
+                    },
+                    {
+                        "input": "text",
+                        "type": "output",
+                        "name": "Output",
+                        "description": "Output directory where video is saved",
+                        "param": "--output",
+                        "default": [
+                            "static/dofdata/folder3/test.mp4"
+                        ],
+                        "values": [
+                            "static/dofdata/folder3/test.mp4"
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Extract Frames",
+                "command": "python dreamer.py --extract 1",
+                "parameter": [
+                    {
+                        "input": "select",
+                        "type": "input",
+                        "delimiter": ",",
+                        "name": "Input",
+                        "description": "Input Video",
+                        "param": "--input",
+                        "default": [
+                            "static/dofdata/giphy.mp4"
+                        ],
+                        "values": [
+                            "static/dofdata/giphy.mp4"
+                        ]
+                    },
+                    {
+                        "input": "select",
+                        "type": "output",
+                        "name": "Output",
+                        "description": "Output directory where extracted video frames are saved",
+                        "param": "--output",
+                        "default": [
+                            "static/dofdata/folder1"
+                        ],
+                        "values": [
+                            "static/dofdata/folder1"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
