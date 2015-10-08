@@ -1,0 +1,23 @@
+[
+    {
+        "name": "DeepDreamAnim",
+        "url": "/deepdream.json",
+        "user": "samim",
+        "data": "8.10.2015",
+        "description": "none"
+    },
+    {
+        "name": "StyleNet",
+        "url": "/neuralstyle.json",
+        "user": "samim",
+        "data": "8.10.2015",
+        "description": "none"
+    },
+    {
+        "name": "char-rnn",
+        "url": "/charrnn.json",
+        "user": "samim",
+        "data": "8.10.2015",
+        "description": "none"
+    }
+]
