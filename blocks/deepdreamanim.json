@@ -5,7 +5,7 @@
             "author": "samim",
             "version": "v1.1"
         },
-        "documentation": "https://github.com/samim23/DeepDreamAnim/blob/master/README.md",
+        "documentation": "https://raw.githubusercontent.com/samim23/DeepDreamAnim/master/README.md",
         "api": {
             "endpoint": "http://127.0.0.1:5000/",
             "apppath": "/Users/samim/sites/deepdreamui/",
