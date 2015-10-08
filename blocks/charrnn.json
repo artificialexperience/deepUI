@@ -1,0 +1,535 @@
+{
+    "block": {
+        "meta": {
+            "name": "char-rnn",
+            "author": "Karpathy",
+            "version": "v1.0"
+        },
+        "documentation": "https://raw.githubusercontent.com/karpathy/char-rnn/master/Readme.md",
+        "api": {
+            "endpoint": "http://127.0.0.1:5000/",
+            "apppath": "/Users/samim/sites/char-rnn/",
+            "bucket": "/Users/samim/sites/char-rnn/"
+        },
+        "parameters": [
+            {
+                "name": "Train",
+                "command": "th train.lua",
+                "parameter": [
+                    {
+                        "input": "title",
+                        "name": "Input"
+                    },
+                    {
+                        "input": "select",
+                        "type": "input",
+                        "delimiter": ",",
+                        "name": "Data directory",
+                        "description": "Should contain the file input.txt with input data",
+                        "param": "-data_dir",
+                        "default": [
+                            "data/tinyshakespeare"
+                        ],
+                        "values": [
+                            "data/tinyshakespeare"
+                        ]
+                    },
+                    {
+                        "input": "select",
+                        "type": "input",
+                        "delimiter": ",",
+                        "name": "Init From",
+                        "description": "initialize network parameters from checkpoint at this path (optional)",
+                        "param": "-init_from",
+                        "default": [
+                            ""
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                    {
+                        "input": "title",
+                        "name": "Output"
+                    },
+                    {
+                        "input": "select",
+                        "type": "output",
+                        "delimiter": ",",
+                        "name": "checkpoint_dir",
+                        "description": "output directory where checkpoints get written",
+                        "param": "-checkpoint_dir",
+                        "default": [
+                            "cv"
+                        ],
+                        "values": [
+                            "cv"
+                        ]
+                    },
+                    {
+                        "input": "text",
+                        "name": "savefile",
+                        "description": "filename to autosave the checkpont to. Will be inside checkpoint_dir/",
+                        "param": "-savefile",
+                        "default": [
+                            "lstm"
+                        ],
+                        "values": [
+                            "lstm"
+                        ]
+                    },
+                    {
+                        "input": "title",
+                        "name": "Settings"
+                    },
+                    {
+                        "input": "text",
+                        "name": "seed",
+                        "description": "torch manual random number generator seed",
+                        "param": "-seed",
+                        "default": [
+                            "123"
+                        ],
+                        "values": [
+                            "123"
+                        ]
+                    },
+                    {
+                        "input": "range",
+                        "name": "rnn_size",
+                        "description": "size of LSTM internal state",
+                        "param": "-rnn_size",
+                        "default": [
+                            "128"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "2048",
+                            "step": "1"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "num_layers",
+                        "description": "number of layers in the LSTM",
+                        "param": "-num_layers",
+                        "default": [
+                            "2"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "20",
+                            "step": "1"
+                        }
+                    },
+                    {
+                        "input": "select",
+                        "name": "model",
+                        "description": "lstm,gru or rnn",
+                        "param": "-model",
+                        "default": [
+                            "lstm"
+                        ],
+                        "values": [
+                            "lstm",
+                            "gru",
+                            "rnn"
+                        ]
+                    },
+                    {
+                        "input": "text",
+                        "name": "learning_rate",
+                        "description": "",
+                        "param": "-learning_rate",
+                        "default": [
+                            "2e-3"
+                        ],
+                        "values": [
+                            "2e-3"
+                        ]
+                    },
+                    {
+                        "input": "range",
+                        "name": "learning_rate_decay",
+                        "description": "learning rate decay",
+                        "param": "-learning_rate_decay",
+                        "default": [
+                            "0.97"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "1",
+                            "step": "0.01"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "learning_rate_decay_after",
+                        "description": "in number of epochs, when to start decaying the learning rate",
+                        "param": "-learning_rate_decay_after",
+                        "default": [
+                            "10"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "100",
+                            "step": "1"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "decay_rate",
+                        "description": "decay rate for rmsprop",
+                        "param": "-decay_rate",
+                        "default": [
+                            "0.95"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "1",
+                            "step": "0.01"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "dropout",
+                        "description": "dropout for regularization, used after each RNN hidden layer. 0 = no dropout",
+                        "param": "-dropout",
+                        "default": [
+                            "0"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "1000",
+                            "step": "1"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "seq_length",
+                        "description": "number of timesteps to unroll for",
+                        "param": "-seq_length",
+                        "default": [
+                            "50"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "1000",
+                            "step": "1"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "batch_size",
+                        "description": "number of sequences to train on in parallel",
+                        "param": "-batch_size",
+                        "default": [
+                            "50"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "1000",
+                            "step": "1"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "max_epochs",
+                        "description": "number of full passes through the training data",
+                        "param": "-max_epochs",
+                        "default": [
+                            "50"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "1000",
+                            "step": "1"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "grad_clip",
+                        "description": "clip gradients at this value",
+                        "param": "-grad_clip",
+                        "default": [
+                            "5"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "20",
+                            "step": "1"
+                        }
+                    },
+                    {
+                        "input": "title",
+                        "name": "Training Set"
+                    },
+                    {
+                        "input": "range",
+                        "name": "train_frac",
+                        "description": "fraction of data that goes into train set",
+                        "param": "-train_frac",
+                        "default": [
+                            "0.95"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "1",
+                            "step": "0.01"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "val_frac",
+                        "description": "fraction of data that goes into validation set",
+                        "param": "-val_frac",
+                        "default": [
+                            "0.05"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "1",
+                            "step": "0.01"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "val_frac",
+                        "description": "fraction of data that goes into validation set",
+                        "param": "-val_frac",
+                        "default": [
+                            "0.05"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "1",
+                            "step": "0.01"
+                        }
+                    },
+                    {
+                        "input": "title",
+                        "name": "Print"
+                    },
+                    {
+                        "input": "range",
+                        "name": "print_every",
+                        "description": "how many steps/minibatches between printing out the loss",
+                        "param": "-print_every",
+                        "default": [
+                            "1"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "50",
+                            "step": "1"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "eval_val_every",
+                        "description": "every how many iterations should we evaluate on validation data?",
+                        "param": "-eval_val_every",
+                        "default": [
+                            "1000"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "5000",
+                            "step": "1"
+                        }
+                    },
+                    {
+                        "input": "title",
+                        "name": "GPU"
+                    },
+                    {
+                        "input": "range",
+                        "name": "gpuid",
+                        "description": "which gpu to use. -1 = use CPU",
+                        "param": "-gpuid",
+                        "default": [
+                            "0"
+                        ],
+                        "range": {
+                            "min": "-1",
+                            "max": "2",
+                            "step": "1"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "opencl",
+                        "description": "use OpenCL (instead of CUDA)",
+                        "param": "-opencl",
+                        "default": [
+                            "0"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "2",
+                            "step": "1"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Sample",
+                "command": "th sample.lua",
+                "parameter": [
+                    {
+                        "input": "title",
+                        "name": "Input"
+                    },
+                    {
+                        "input": "select",
+                        "type": "input",
+                        "delimiter": ",",
+                        "name": "model",
+                        "description": "model checkpoint to use for sampling",
+                        "param": "",
+                        "default": [
+                            ""
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                    {
+                        "input": "text",
+                        "name": "primetext",
+                        "type": "input",
+                        "description": "used as a prompt to seed the state of the LSTM using a given sequence, before we sample.",
+                        "param": "-primetext",
+                        "default": [
+                            ""
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                    {
+                        "input": "title",
+                        "name": "Settings"
+                    },
+                    {
+                        "input": "text",
+                        "name": "speed",
+                        "description": "random number generators seed",
+                        "param": "-seed",
+                        "default": [
+                            "123"
+                        ],
+                        "values": [
+                            "123"
+                        ]
+                    },
+                    {
+                        "input": "range",
+                        "name": "sample",
+                        "description": "0 to use max at each timestep, 1 to sample at each timestep",
+                        "param": "-sample",
+                        "default": [
+                            "0"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "2",
+                            "step": "1"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "length",
+                        "description": "number of characters to sample",
+                        "param": "-length",
+                        "default": [
+                            "2000"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "100000",
+                            "step": "100"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "temperature",
+                        "description": "temperature of sampling",
+                        "param": "-temperature",
+                        "default": [
+                            "1.00"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "10",
+                            "step": "0.01"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "verbose",
+                        "description": "set to 0 to ONLY print the sampled text, no diagnostics",
+                        "param": "-verbose",
+                        "default": [
+                            "0"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "2",
+                            "step": "1"
+                        }
+                    },
+                    {
+                        "input": "title",
+                        "name": "GPU"
+                    },
+                    {
+                        "input": "range",
+                        "name": "gpuid",
+                        "description": "which gpu to use. -1 = use CPU",
+                        "param": "-gpuid",
+                        "default": [
+                            "0"
+                        ],
+                        "range": {
+                            "min": "-1",
+                            "max": "2",
+                            "step": "1"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "opencl",
+                        "description": "use OpenCL (instead of CUDA)",
+                        "param": "-opencl",
+                        "default": [
+                            "0"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "2",
+                            "step": "1"
+                        }
+                    },
+                    {
+                        "input": "title",
+                        "name": "Output"
+                    },
+                    {
+                        "input": "text",
+                        "name": "output file",
+                        "type": "output",
+                        "description": "Output text file .txt",
+                        "param": ">",
+                        "default": [
+                            "output.txt"
+                        ],
+                        "values": [
+                            "output.txt"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
