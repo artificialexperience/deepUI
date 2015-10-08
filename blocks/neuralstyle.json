@@ -9,7 +9,8 @@
         "api": {
             "endpoint": "http://127.0.0.1:5000/",
             "apppath": "/Users/samim/sites/neural-style/",
-            "bucket": "/Users/samim/sites/neural-style/static/dofdata"
+            "bucket": "/Users/samim/sites/neural-style/static/dofdata",
+            "gitrepo": "https://github.com/jcjohnson/neural-style"
         },
         "parameters": [
             {
