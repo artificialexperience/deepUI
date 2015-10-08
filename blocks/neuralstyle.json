@@ -5,7 +5,7 @@
             "author": "samim",
             "version": "v1.0"
         },
-        "documentation": "Stylenet Documentation & Links",
+        "documentation": "https://raw.githubusercontent.com/jcjohnson/neural-style/master/README.md",
         "api": {
             "endpoint": "http://127.0.0.1:5000/",
             "apppath": "/Users/samim/sites/neural-style/",
