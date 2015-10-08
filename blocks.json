@@ -5,7 +5,7 @@
         "user": "samim",
         "date": "7.10.2015",
         "description": "Create DeepDream animations. Including optical flow, single unite & guided dreaming.",
-        "image":"https://i.imgur.com/KdHNRD4.png",
+        "image":"https://i.imgur.com/EtqJVeA.png",
         "version": "1.0"
     },
     {
@@ -23,7 +23,7 @@
         "user": "samim",
         "date": "8.10.2015",
         "description": "Recurrent Neural Network for training/sampling from character-level language models.",
-        "image":"https://i.imgur.com/EtqJVeA.png",
+        "image":"https://i.imgur.com/KdHNRD4.png",
         "version": "1.0"
     }
 ]
