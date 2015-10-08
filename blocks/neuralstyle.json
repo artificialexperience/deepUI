@@ -1,0 +1,321 @@
+{
+    "block": {
+        "meta": {
+            "name": "Stylenet",
+            "author": "samim",
+            "version": "v1.0"
+        },
+        "documentation": "Stylenet Documentation & Links",
+        "api": {
+            "endpoint": "http://127.0.0.1:5000/",
+            "apppath": "/Users/samim/sites/neural-style/",
+            "bucket": "/Users/samim/sites/neural-style/static/dofdata"
+        },
+        "parameters": [
+            {
+                "name": "Create Style",
+                "command": "th neural_style.lua",
+                "parameter": [
+                    {
+                        "input": "title",
+                        "name": "Input/Output"
+                    },
+                    {
+                        "input": "select",
+                        "name": "Input: content image",
+                        "type": "input",
+                        "description": "Image that style is applied to",
+                        "param": "-content_image",
+                        "default": [
+                            "image1.jpg"
+                        ],
+                        "values": [
+                            "image1.jpg",
+                            "image2.jpg"
+                        ]
+                    },
+                    {
+                        "input": "select_multi",
+                        "type": "input",
+                        "delimiter": ",",
+                        "name": "Input: style image",
+                        "description": "Image that style is taken from",
+                        "param": "-style_image",
+                        "default": [
+                            "image1.jpg",
+                            "image3.jpg"
+                        ],
+                        "values": [
+                            "image1.jpg",
+                            "image2.jpg",
+                            "image3.jpg",
+                            "image4.jpg",
+                            "image5.jpg"
+                        ]
+                    },
+                    {
+                        "input": "text",
+                        "type": "output",
+                        "name": "output image",
+                        "description": "Name of the output image. Default is out.jpg",
+                        "param": "-output_image",
+                        "default": [
+                            "out.jpg"
+                        ],
+                        "values": [
+                            "out.jpg"
+                        ]
+                    },
+                    {
+                        "input": "title",
+                        "name": "Options"
+                    },
+                    {
+                        "input": "range",
+                        "name": "Image size",
+                        "description": "Maximum side length (in pixels) of of the generated image. Default is 512",
+                        "param": "-image_size",
+                        "default": [
+                            "100"
+                        ],
+                        "range": {
+                            "min": "10",
+                            "max": "4096",
+                            "step": "1"
+                        }
+                    },
+                    {
+                        "input": "select",
+                        "name": "GPU",
+                        "description": "Zero-indexed ID of the GPU to use; for CPU mode set -gpu to -1.",
+                        "param": "-gpu",
+                        "default": [
+                            "0"
+                        ],
+                        "values": [
+                            "-1",
+                            "0",
+                            "1",
+                            "2",
+                            "3"
+                        ]
+                    },
+                    {
+                        "input": "title",
+                        "name": "Optimization options"
+                    },
+                    {
+                        "input": "range",
+                        "name": "Content weight",
+                        "description": "How much to weight the content reconstruction term. Default is 5e0.",
+                        "param": "-content_weight",
+                        "default": [
+                            "0.005"
+                        ],
+                        "range": {
+                            "min": "0.001",
+                            "max": "1",
+                            "step": "0.001"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "Style weight",
+                        "description": "How much to weight the style reconstruction term. Default is 1e2.",
+                        "param": "-style_weight",
+                        "default": [
+                            "0.005"
+                        ],
+                        "range": {
+                            "min": "0.001",
+                            "max": "1",
+                            "step": "0.001"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "TV weight",
+                        "description": "Weight of total-variation (TV) regularization; this helps to smooth the image. Default is 1e-3. Set to 0 to disable TV regularization.",
+                        "param": "-tv_weight",
+                        "default": [
+                            "0.005"
+                        ],
+                        "range": {
+                            "min": "0.001",
+                            "max": "1",
+                            "step": "0.001"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "Iterations",
+                        "description": "Default is 1000.",
+                        "param": "-num_iterations",
+                        "default": [
+                            "1000"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "10000",
+                            "step": "50"
+                        }
+                    },
+                    {
+                        "input": "select",
+                        "name": "Init",
+                        "description": "Method for generating the generated image; one of random or image. Default is random which uses a noise initialization as in the paper; image initializes with the content image.",
+                        "param": "-init",
+                        "default": [
+                            "random"
+                        ],
+                        "values": [
+                            "random",
+                            "image"
+                        ]
+                    },
+                    {
+                        "input": "select",
+                        "name": "Optimizer",
+                        "description": "The optimization algorithm to use; either lbfgs or adam; default is lbfgs. L-BFGS tends to give better results, but uses more memory. Switching to ADAM will reduce memory usage; when using ADAM you will probably need to play with other parameters to get good results, especially the style weight, content weight, and learning rate; you may also want to normalize gradients when using ADAM.",
+                        "param": "-optimizer",
+                        "default": [
+                            "lbfgs"
+                        ],
+                        "values": [
+                            "lbfgs",
+                            "adam"
+                        ]
+                    },
+                    {
+                        "input": "range",
+                        "name": "Learning rate",
+                        "description": "Learning rate to use with the ADAM optimizer. Default is 1e1.",
+                        "param": "-learning_rate",
+                        "default": [
+                            "0.005"
+                        ],
+                        "range": {
+                            "min": "0.001",
+                            "max": "1",
+                            "step": "0.001"
+                        }
+                    },
+                    {
+                        "input": "select",
+                        "name": "Normalize gradients",
+                        "description": "If this flag is present, style and content gradients from each layer will be L1 normalized. Idea from andersbll/neural_artistic_style.",
+                        "param": "-normalize_gradients",
+                        "default": [
+                            ""
+                        ],
+                        "values": [
+                            "",
+                            "1"
+                        ]
+                    },
+                    {
+                        "input": "title",
+                        "name": "Output options"
+                    },
+                    {
+                        "input": "range",
+                        "name": "Print iter",
+                        "description": "Print progress every print_iter iterations. Set to 0 to disable printing",
+                        "param": "-print_iter",
+                        "default": [
+                            "50"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "10000",
+                            "step": "10"
+                        }
+                    },
+                    {
+                        "input": "range",
+                        "name": "Save iter",
+                        "description": "Save the image every save_iter iterations. Set to 0 to disable saving intermediate results.",
+                        "param": "-save_iter",
+                        "default": [
+                            "50"
+                        ],
+                        "range": {
+                            "min": "0",
+                            "max": "10000",
+                            "step": "10"
+                        }
+                    },
+                    {
+                        "input": "title",
+                        "name": "Other options"
+                    },
+                    {
+                        "input": "range",
+                        "name": "Style scale",
+                        "description": "Scale at which to extract features from the style image. Default is 1.0",
+                        "param": "-style_scale",
+                        "default": [
+                            "1.0"
+                        ],
+                        "range": {
+                            "min": "0.1",
+                            "max": "2",
+                            "step": "0.1"
+                        }
+                    },
+                    {
+                        "input": "select",
+                        "name": "Proto file",
+                        "description": "Path to the deploy.txt file for the VGG Caffe model",
+                        "param": "-proto_file",
+                        "default": [
+                            "models/VGG_ILSVRC_19_layers_deploy.prototxt"
+                        ],
+                        "values": [
+                            "models/VGG_ILSVRC_19_layers_deploy.prototxt"
+                        ]
+                    },
+                    {
+                        "input": "select",
+                        "name": "Model file",
+                        "description": "Path to the .caffemodel file for the VGG Caffe model. Default is the original VGG-19 model; you can also try the normalized VGG-19 model used in the paper.",
+                        "param": "-model_file",
+                        "default": [
+                            "models/VGG_ILSVRC_19_layers.caffemodel"
+                        ],
+                        "values": [
+                            "models/VGG_ILSVRC_19_layers.caffemodel",
+                            "models/vgg_normalised.caffemodel"
+                        ]
+                    },
+                    {
+                        "input": "select",
+                        "name": "Pooling",
+                        "description": "The type of pooling layers to use; one of max or avg. Default is max. The VGG-19 models uses max pooling layers, but the paper mentions that replacing these layers with average pooling layers can improve the results. I haven't been able to get good results using average pooling, but the option is here",
+                        "param": "-pooling",
+                        "default": [
+                            "max"
+                        ],
+                        "values": [
+                            "max",
+                            "avg"
+                        ]
+                    },
+                    {
+                        "input": "select",
+                        "name": "Backend",
+                        "description": "nn or cudnn. Default is nn. cudnn requires cudnn.torch and may reduce memory usage.",
+                        "param": "-backend",
+                        "default": [
+                            "nn"
+                        ],
+                        "values": [
+                            "nn",
+                            "cudnn"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
