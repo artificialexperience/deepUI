@@ -3,21 +3,21 @@
         "name": "DeepDreamAnim",
         "url": "https://raw.githubusercontent.com/artificialexperience/deepUI/master/blocks/deepdreamanim.json",
         "user": "samim",
-        "data": "8.10.2015",
+        "date": "8.10.2015",
         "description": "none"
     },
     {
         "name": "StyleNet",
         "url": "https://raw.githubusercontent.com/artificialexperience/deepUI/master/blocks/neuralstyle.json",
         "user": "samim",
-        "data": "8.10.2015",
+        "date": "8.10.2015",
         "description": "none"
     },
     {
         "name": "char-rnn",
         "url": "https://raw.githubusercontent.com/artificialexperience/deepUI/master/blocks/charrnn.json",
         "user": "samim",
-        "data": "8.10.2015",
+        "date": "8.10.2015",
         "description": "none"
     }
 ]
