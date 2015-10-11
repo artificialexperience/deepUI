@@ -18,10 +18,6 @@
                 "command": "python dreamer.py",
                 "parameter": [
                     {
-                        "input": "title",
-                        "name": "Input/Output"
-                    },
-                    {
                         "input": "select",
                         "type": "input",
                         "delimiter": ",",
