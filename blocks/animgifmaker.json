@@ -1,0 +1,80 @@
+{
+    "block": {
+        "meta": {
+            "name": "Animated Gif Maker",
+            "author": "AE",
+            "version": "v1.0"
+        },
+        "documentation": "Create animated Gifs with ImageMagick.",
+        "api":{
+        	"endpoint":"http://127.0.0.1:5000/",
+        	"apppath":"/Users/samim/sites/deepdreamui/",
+        	"bucket":"/Users/samim/sites/deepdreamui/static/dofdata/",
+        	"gitrepo": "https://github.com/ImageMagick/ImageMagick"
+        },
+        "parameters": 
+        [
+        	{
+        		"name":"Make Anim Gif",
+        		"command":"convert",
+		        "parameter": 
+		        [
+		            {
+		            	"input": "select",
+		            	"type":"input",
+		            	"delimiter":",",
+		                "name": "Input Path",
+		                "description":"Input folder with images.",
+		                "param": "",
+		                "default":[""],
+		                "values": [""],
+		                "postfix":"/*"
+		            },
+		            {
+		            	"input": "select",
+		                "name": "Input Filetype",
+		                "description":"Input image file format.",
+		                "param": "",
+		                "default":["jpg"],
+		                "values": ["jpg","jpeg","png","bmp","tif"]
+		            },
+		            {
+		            	"input": "range",
+		                "name": "Delay",
+		                "description":"Delay in milliseconds between frames.",
+		                "param": "-delay",
+		                "default":["50"],
+		                "range": {"min":"0","max":"1000","step":"1"}
+		            },
+		            {
+		            	"input": "range",
+		                "name": "Loop",
+		                "description":"How many times anim loops. 0 = infinite",
+		                "param": "-loop",
+		                "default":["0"],
+		                "range": {"min":"0","max":"1000","step":"1"}
+		            },
+		            {
+		            	"input": "select",
+		            	"type":"output",
+		                "name": "Output Path",
+		                "description":"Output folder where animate gif is saved.",
+		                "param": "",
+		                "default":[""],
+		                "values": [""],
+		                "postfix":"/"
+		            },
+		            {
+		            	"input": "text",
+		                "name": "Output Filename",
+		                "description":"Filename of animated gif.",
+		                "param": "",
+		                "default":["myanimgif"],
+		                "values": ["myanimgif"],
+		                "postfix":".gif"
+		            }
+		        ]
+		    }
+        ]
+    }
+}
