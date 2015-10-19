@@ -25,5 +25,14 @@
         "description": "Recurrent Neural Network for training/sampling from character-level language models.",
         "image":"https://i.imgur.com/KdHNRD4.png",
         "version": "1.0"
+    },
+    {
+        "name": "Animated Gif Maker",
+        "url": "https://raw.githubusercontent.com/artificialexperience/deepUI/master/blocks/animgifmaker.json",
+        "user": "samim",
+        "date": "19.10.2015",
+        "description": "Create animated Gifs with ImageMagick.",
+        "image":"https://i.imgur.com/DnFdNUH.gif",
+        "version": "1.0"
     }
 ]
