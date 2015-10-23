@@ -25,10 +25,10 @@
                         "description": "Input directory with images",
                         "param": "--input",
                         "default": [
-                            "static/dofdata/folder1"
+                            ""
                         ],
                         "values": [
-                            "static/dofdata/folder1"
+                            ""
                         ]
                     },
                     {
@@ -38,10 +38,10 @@
                         "description": "Output directory where images are saved",
                         "param": "--output",
                         "default": [
-                            "static/dofdata/folder3"
+                            ""
                         ],
                         "values": [
-                            "static/dofdata/folder3"
+                            ""
                         ]
                     },
                     {
@@ -306,13 +306,13 @@
                         "type": "input",
                         "delimiter": ",",
                         "name": "Input",
-                        "description": "Input Video",
+                        "description": "Video File",
                         "param": "--input",
                         "default": [
-                            "static/dofdata/giphy.mp4"
+                            "test.mp4"
                         ],
                         "values": [
-                            "static/dofdata/giphy.mp4"
+                            "test.mp4"
                         ]
                     },
                     {
