@@ -289,11 +289,11 @@
 	            },
 	            {
 	            	"input": "text",
-	                "name": "Output Filename",
-	                "description":"Filename of movie .mp4.",
+	                "name": "Framerate",
+	                "description":"Frames per second. Default 25",
 	                "param": "--framerate",
-	                "default":["24"],
-	                "values": ["24"]
+	                "default":["25"],
+	                "values": ["25"]
 	            }
                 ]
             },
