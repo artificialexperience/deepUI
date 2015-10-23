@@ -285,7 +285,7 @@
 	                "param": "",
 	                "default":["mymovie"],
 	                "values": ["mymovie"],
-	                "postfix":".mp4"
+	                "postfix":".mp4 "
 	            },
 	            {
 	            	"input": "text",
@@ -293,8 +293,7 @@
 	                "description":"Frames per second. Default 25",
 	                "param": "--framerate",
 	                "default":["25"],
-	                "values": ["25"],
-	                "prefix":" "
+	                "values": ["25"]
 	            }
                 ]
             },
