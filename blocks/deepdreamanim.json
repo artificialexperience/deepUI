@@ -286,6 +286,14 @@
 	                "default":["mymovie"],
 	                "values": ["mymovie"],
 	                "postfix":".mp4"
+	            },
+	            {
+	            	"input": "text",
+	                "name": "Output Filename",
+	                "description":"Filename of movie .mp4.",
+	                "param": "--framerate",
+	                "default":["24"],
+	                "values": ["24"]
 	            }
                 ]
             },
