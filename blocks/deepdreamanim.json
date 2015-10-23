@@ -269,18 +269,24 @@
                         ]
                     },
                     {
-                        "input": "text",
-                        "type": "output",
-                        "name": "Output",
-                        "description": "Output directory where video is saved",
-                        "param": "--output",
-                        "default": [
-                            "static/dofdata/folder3/test.mp4"
-                        ],
-                        "values": [
-                            "static/dofdata/folder3/test.mp4"
-                        ]
-                    },
+		            	"input": "select",
+		            	"type":"output",
+		                "name": "Output Path",
+		                "description":"Output directory where video is saved",
+		                "param": "--output",
+		                "default":[""],
+		                "values": [""],
+		                "postfix":"/"
+		            },
+		            {
+		            	"input": "text",
+		                "name": "Output Filename",
+		                "description":"Filename of movie .mp4.",
+		                "param": "",
+		                "default":["mymovie"],
+		                "values": ["mymovie"],
+		                "postfix":".mp4"
+		            }
                 ]
             },
             {
