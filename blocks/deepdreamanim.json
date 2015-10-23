@@ -293,7 +293,8 @@
 	                "description":"Frames per second. Default 25",
 	                "param": "--framerate",
 	                "default":["25"],
-	                "values": ["25"]
+	                "values": ["25"],
+	                "prefix":" "
 	            }
                 ]
             },
