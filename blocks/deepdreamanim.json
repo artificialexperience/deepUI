@@ -262,10 +262,10 @@
                         "description": "Input directory with images",
                         "param": "--input",
                         "default": [
-                            "static/dofdata/folder3"
+                            ""
                         ],
                         "values": [
-                            "static/dofdata/folder3"
+                            ""
                         ]
                     },
                     {
@@ -314,10 +314,10 @@
                         "description": "Output directory where extracted video frames are saved",
                         "param": "--output",
                         "default": [
-                            "static/dofdata/folder1"
+                            ""
                         ],
                         "values": [
-                            "static/dofdata/folder1"
+                            ""
                         ]
                     }
                 ]
