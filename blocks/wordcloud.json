@@ -5,12 +5,12 @@
             "author": "graphific",
             "version": "v1.0"
         },
-        "documentation": "https://raw.githubusercontent.com/graphific/DeepUIRecipes/master/wordcloud/README.md",
+        "documentation": "https://raw.githubusercontent.com/artificialexperience/DeepUIRecipes/master/wordcloud/README.md",
         "api": {
             "endpoint": "http://127.0.0.1:5000/",
             "apppath": "/Users/samim/sites/deepdreamui/",
             "bucket": "/Users/samim/sites/deepdreamui/static/dofdata/",
-            "gitrepo": "https://github.com/graphific/DeepUIRecipes"
+            "gitrepo": "https://github.com/artificialexperience/DeepUIRecipes"
         },
         "parameters": [
             {
