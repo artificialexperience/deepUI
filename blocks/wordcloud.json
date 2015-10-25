@@ -1,0 +1,160 @@
+{
+    "block": {
+        "meta": {
+            "name": "WordCloud",
+            "author": "graphific",
+            "version": "v1.0"
+        },
+        "documentation": "https://raw.githubusercontent.com/graphific/DeepUIRecipes/master/wordcloud/README.md",
+        "api": {
+            "endpoint": "http://127.0.0.1:5000/",
+            "apppath": "/Users/samim/sites/deepdreamui/",
+            "bucket": "/Users/samim/sites/deepdreamui/static/dofdata/",
+            "gitrepo": "https://github.com/graphific/DeepUIRecipes"
+        },
+        "parameters": [
+            {
+                "name": "Create WordCloud",
+                "command": "python wordcloud/runwordcloud.py.py",
+                "parameter": [
+                   {
+                        "input": "title",
+                        "name": "Settings"
+                    },
+                    {
+                        "input": "text",
+                        "name": "infile",
+                        "description": "text or csv file to read from",
+                        "param": "--infile",
+                        "default": [
+                            "dump.csv"
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                    {
+                        "input": "text",
+                        "name": "csv",
+                        "description": "csv dumped from twitter (where tweets have to be extracted from?)",
+                        "param": "--csv",
+                        "default": [
+                            "yes"
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                    {
+                        "input": "text",
+                        "name": "outfile",
+                        "description": "Filename to create picture.png from",
+                        "param": "--outfile",
+                        "default": [
+                            "wordcloud.png"
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                    {
+                        "input": "text",
+                        "name": "background",
+                        "description": "background color. default: white",
+                        "param": "--background",
+                        "default": [
+                            "white"
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                    {
+                        "input": "text",
+                        "name": "max_words",
+                        "description": "max words. default: 200",
+                        "param": "--max_words",
+                        "default": [
+                            "200"
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                    {
+                        "input": "text",
+                        "name": "mask_file",
+                        "description": "(Optional) mask picture file",
+                        "param": "--mask_file",
+                        "default": [
+                            ""
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                    {
+                        "input": "text",
+                        "name": "max_font_size",
+                        "description": "maximum font size",
+                        "param": "--max_font_size",
+                        "default": [
+                            ""
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                    {
+                        "input": "text",
+                        "name": "relative_scaling",
+                        "description": "(Optional) relative scaling (opposed to max words, 0.0 - 1.0, ie 0.5)",
+                        "param": "--relative_scaling",
+                        "default": [
+                            "0"
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                    {
+                        "input": "text",
+                        "name": "width",
+                        "description": "width. default: 400",
+                        "param": "--width",
+                        "default": [
+                            "400"
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                    {
+                        "input": "text",
+                        "name": "height",
+                        "description": "height, default: 200",
+                        "param": "--height",
+                        "default": [
+                            "200"
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                    {
+                        "input": "text",
+                        "name": "margin",
+                        "description": "margin. default: 2",
+                        "param": "--margin",
+                        "default": [
+                            "2"
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                ]
+            }
+        ]
+    }
+}

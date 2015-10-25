@@ -1,0 +1,232 @@
+{
+    "block": {
+        "meta": {
+            "name": "Tweepy",
+            "author": "graphific",
+            "version": "v1.0"
+        },
+        "documentation": "https://raw.githubusercontent.com/graphific/DeepUIRecipes/master/tweepy/README.md",
+        "api": {
+            "endpoint": "http://127.0.0.1:5000/",
+            "apppath": "/Users/samim/sites/deepdreamui/",
+            "bucket": "/Users/samim/sites/deepdreamui/static/dofdata/",
+            "gitrepo": "https://github.com/graphific/DeepUIRecipes"
+        },
+        "parameters": [
+            {
+                "name": "Search Twitter",
+                "command": "python tweepy/streaming.py",
+                "parameter": [
+                   {
+                        "input": "title",
+                        "name": "Authentication"
+                    },
+                    {
+                        "input": "text",
+                        "name": "consumer key",
+                        "description": "Go to http://apps.twitter.com and create an app. The consumer key will be generated for you after",
+                        "param": "--consumer_key",
+                        "default": [
+                            ""
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                    {
+                        "input": "text",
+                        "name": "consumer secret",
+                        "description": "Go to http://apps.twitter.com and create an app. The consumer secret will be generated for you after",
+                        "param": "--consumer_secret",
+                        "default": [
+                            ""
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                    {
+                        "input": "text",
+                        "name": "access token",
+                        "description": "After the step above, you will be redirected to your app's page. Create an access token under the the 'Your access token' section",
+                        "param": "--access_token",
+                        "default": [
+                            ""
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                    {
+                        "input": "text",
+                        "name": "access token secret",
+                        "description": "After the step above, you will be redirected to your app's page. Create an access token under the the 'Your access token' section",
+                        "param": "--access_token_secret",
+                        "default": [
+                            ""
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+
+                    {
+                        "input": "title",
+                        "name": "Settings"
+                    },
+                    {
+                        "input": "text",
+                        "name": "keyword",
+                        "description": "keyword to search tweets on",
+                        "param": "--keyword",
+                        "default": [
+                            "machinelearning"
+                        ],
+                        "values": [
+                            "machinelearning"
+                        ]
+                    },
+                    {
+                        "input": "range",
+                        "name": "searchtime",
+                        "description": "Minutes to search. Default: 1",
+                        "param": "--searchtime",
+                        "default": [
+                            "1"
+                        ],
+                        "range": {
+                            "min": "1",
+                            "max": "30",
+                            "step": "1"
+                        }
+                    },
+                    {
+                        "input": "select",
+                        "type": "output",
+                        "name": "Output",
+                        "description": "File where to save twitter data",
+                        "param": "--output",
+                        "default": [
+                            "twitterout.txt"
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Grab Own Timeline",
+                "command": "python tweepy/timeline.py",
+                "parameter": [
+                   {
+                        "input": "title",
+                        "name": "Authentication"
+                    },
+                    {
+                        "input": "text",
+                        "name": "consumer key",
+                        "description": "Go to http://apps.twitter.com and create an app. The consumer key will be generated for you after",
+                        "param": "--consumer_key",
+                        "default": [
+                            ""
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                    {
+                        "input": "text",
+                        "name": "consumer secret",
+                        "description": "Go to http://apps.twitter.com and create an app. The consumer secret will be generated for you after",
+                        "param": "--consumer_secret",
+                        "default": [
+                            ""
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                    {
+                        "input": "text",
+                        "name": "access token",
+                        "description": "After the step above, you will be redirected to your app's page. Create an access token under the the 'Your access token' section",
+                        "param": "--access_token",
+                        "default": [
+                            ""
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                    {
+                        "input": "text",
+                        "name": "access token secret",
+                        "description": "After the step above, you will be redirected to your app's page. Create an access token under the the 'Your access token' section",
+                        "param": "--access_token_secret",
+                        "default": [
+                            ""
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                    {
+                        "input": "text",
+                        "name": "user name",
+                        "description": "your twitter handle (@username) without the '@'",
+                        "param": "--user_name",
+                        "default": [
+                            ""
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+
+                    {
+                        "input": "title",
+                        "name": "Settings"
+                    },
+                    {
+                        "input": "text",
+                        "name": "max",
+                        "description": "Maximum number (integer) of timeline tweets query (searches all by default=0)",
+                        "param": "--max",
+                        "default": [
+                            "0"
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                    {
+                        "input": "text",
+                        "name": "keywords",
+                        "description": "A comma separated list of keywords for filtering (optional).",
+                        "param": "--keywords",
+                        "default": [
+                            ""
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    },
+                    {
+                        "input": "select",
+                        "type": "output",
+                        "name": "Output",
+                        "description": "File where to save twitter data",
+                        "param": "--output",
+                        "default": [
+                            "twitterout.csv"
+                        ],
+                        "values": [
+                            ""
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
