@@ -1,7 +1,7 @@
 {
     "block": {
         "meta": {
-            "name": "Stylenet",
+            "name": "StyleTransfer",
             "author": "samim",
             "version": "v1.0"
         },
