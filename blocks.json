@@ -9,7 +9,7 @@
         "version": "1.0"
     },
     {
-        "name": "StyleNet",
+        "name": "StyleTransfer",
         "url": "https://raw.githubusercontent.com/artificialexperience/deepUI/master/blocks/neuralstyle.json",
         "user": "samim",
         "date": "8.10.2015",
